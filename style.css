@@ -1,0 +1,19 @@
+body {
+    background: #575c5e;
+}
+
+img {
+    background: #ffffff;
+    border-radius: 360px;
+    border: #000000 10px solid;
+}
+
+#wins {
+    color: #074c14;
+}
+#ties {
+    color: #c9c60d;
+}
+#loses {
+    color: #b70f0f;
+}

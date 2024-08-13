@@ -2,10 +2,26 @@ body {
     background: #575c5e;
 }
 
+#score {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+p {
+    font-size: 50px;
+    display: inline;
+    margin: 75px;
+}
+
 img {
     background: #ffffff;
     border-radius: 360px;
-    border: #000000 10px solid;
+    border: #000000 16px solid;
+    margin: 40px;
+}
+
+.choice:hover {
+    border-color: #2596be;
 }
 
 #wins {
@@ -14,6 +30,18 @@ img {
 #ties {
     color: #c9c60d;
 }
-#loses {
+#losses {
     color: #b70f0f;
+}
+
+.win-case {
+    border-color:#074c14;
+}
+
+.lose-case {
+    border-color: #b70f0f;
+}
+
+.tie-case {
+    border-color: #c9c60d;
 }

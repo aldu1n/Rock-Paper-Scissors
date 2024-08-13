@@ -13,38 +13,48 @@ const scissorsEl = document.getElementById('scissors');
 
 const choices = ['rock', 'paper', 'scissors'];
 
+const removeAllClasses = function() {
+  [rockEl, paperEl, scissorsEl].forEach(el => {
+      el.classList.remove('win-case', 'lose-case', 'tie-case');
+  });
+};
+
 const compRandom = function(){
 const index = Math.floor(Math.random() * choices.length);
-const result = choices[index];
-return result
-}
+return choices[index];
+};
 
 
 choicesDiv.addEventListener('click', function(e) {
+  removeAllClasses();
     let userChoice;
     if (e.target.matches('.choice')) {
-       let computerChoise = compRandom();
+       let computerChoice = compRandom();
        userChoice = e.target.getAttribute('id');
-       console.log(userChoice, computerChoise)
+       const userOptionEl = document.getElementById(userChoice);
+       const compOptionEl = document.getElementById(computerChoice);
+       console.log(userChoice, computerChoice)
 
-       if (userChoice === computerChoise) {
+       if (userChoice === computerChoice) {
            ties++;
            tieEl.textContent = 'Ties: ' + ties;
-           window.alert("It's a tie!");
+           userOptionEl.classList.add('tie-case');
          } else if (
-           (userChoice === 'rock' && computerChoise === 'scissors') || 
-           (userChoice === 'paper' && computerChoise === 'rock') || 
-           (userChoice === 'scissors' && computerChoise === 'paper')
+           (userChoice === 'rock' && computerChoice === 'scissors') || 
+           (userChoice === 'paper' && computerChoice === 'rock') || 
+           (userChoice === 'scissors' && computerChoice === 'paper')
          ) {
            wins++;
            winEl.textContent = 'Wins: ' + wins;
-           window.alert("You win!");
+           userOptionEl.classList.add('win-case');
+           compOptionEl.classList.add('lose-case');
          } else {
            losses++;
            loseEl.textContent = 'Losses: ' + losses;
-           window.alert("You lost!");
+           userOptionEl.classList.add('lose-case');
+           compOptionEl.classList.add('win-case');
          }
-         computerChoise = '';
+         computerChoice = '';
     };
 
 });
